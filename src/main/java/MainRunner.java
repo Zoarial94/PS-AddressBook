@@ -21,10 +21,20 @@ public class MainRunner {
 
 
     public static void main(String[] args) {
+        // Variables
         boolean run = true;
         Scanner input = new Scanner(System.in);
         int userChoice;
+        AddressBook addressBook = new AddressBook();
 
+        // Setup
+        addressBook.addEntry(new AddressEntry("Hunter", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
+        addressBook.addEntry(new AddressEntry("Hunter", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
+        addressBook.addEntry(new AddressEntry("Hunter", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
+        addressBook.addEntry(new AddressEntry("Hunter", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
+
+
+        // Loop
         while(run) {
             println(MENU);
             print("Choice: ");
@@ -32,6 +42,7 @@ public class MainRunner {
 
             switch(userChoice) {
                 case 1:
+                    addressBook.print((entry) -> true);
                     break;
                 case 2:
                     break;
