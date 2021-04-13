@@ -1,19 +1,14 @@
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
-public class AddressBook {
-      ArrayList<AddressEntry> entries = new ArrayList<>();
-
+public class AddressBook extends ArrayList<AddressEntry> {
 
 public AddressBook(){
 
 }
 
-public void addEntry(AddressEntry entry){
-    entries.add(entry);
-}
 public void print(Predicate<AddressEntry> predicate) {
-    for (AddressEntry entry : entries){
+    for (AddressEntry entry : this){
         if(predicate.test(entry)){
             System.out.println(entry);
         }

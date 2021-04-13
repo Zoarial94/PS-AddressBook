@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.Scanner;
 
 public class MainRunner {
@@ -28,10 +29,11 @@ public class MainRunner {
         AddressBook addressBook = new AddressBook();
 
         // Setup
-        addressBook.addEntry(new AddressEntry("Hunter", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
-        addressBook.addEntry(new AddressEntry("Hunter", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
-        addressBook.addEntry(new AddressEntry("Hunter", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
-        addressBook.addEntry(new AddressEntry("Hunter", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
+        addressBook.add(new AddressEntry("Hunter", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
+        addressBook.add(new AddressEntry("Arthor", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
+        addressBook.add(new AddressEntry("Betty", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
+        addressBook.add(new AddressEntry("Catherine", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
+        addressBook.add(new AddressEntry("Catherine", "Lackey", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
 
 
         // Loop
@@ -42,6 +44,16 @@ public class MainRunner {
 
             switch(userChoice) {
                 case 1:
+                    // First sort the collection
+                    // Then print everything
+                    addressBook.sort((entry1, entry2) -> {
+                        int ret = entry1.getFirstName().compareTo(entry2.getFirstName());
+                        if (ret == 0) {
+                            return entry1.getLastName().compareTo(entry2.getLastName());
+                        } else {
+                            return ret;
+                        }
+                    });
                     addressBook.print((entry) -> true);
                     break;
                 case 2:
