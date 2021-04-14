@@ -1,9 +1,11 @@
-https://docs.google.com/document/d/1KoVaDiQt9u8GTkpsPt0MgycmolTCVh2NKsCQUNYO-dk/edit#
-
 #[Address Book](https://docs.google.com/document/d/1KoVaDiQt9u8GTkpsPt0MgycmolTCVh2NKsCQUNYO-dk/edit#)
+
 ###An application that manages contact information
+
 Jessica, Hunter, Allison, Michael
+
 ---
+
 - Information is stored in a CSV file with the following format:
     "Name,Surname,Phone,Mobile,E-mail,Street,Town,State,Zip"
 - User can use a default location for Address Book or select from their own
@@ -11,7 +13,7 @@ Jessica, Hunter, Allison, Michael
 - The CSV file is overwritten on save.
 - User has the ability to search, order, edit, and delete entries.
 
-User Stories:
+###User Stories:
     As a user, i want to print all available contacts, so that i can view all contacts in a CSV like view ordered ascending by name then surname
     As a user, i want to add new contact, so that i can increase my contacts list
     As a user, i want to search contacts based on name, so that i can find the appropriate contacts in a short time.
