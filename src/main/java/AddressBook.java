@@ -11,7 +11,12 @@ public class AddressBook extends ArrayList<AddressEntry> {
     public void print(Predicate<AddressEntry> predicate) {
         for (AddressEntry entry : this) {
             if (predicate.test(entry)) {
-                System.out.println(entry);
+                 /* It was giving me location of values, so I used String.join,
+                    not sure if there's a better way convert and display all values,
+                    I just chose first name, last name, and mobile for now.
+                     */
+                System.out.println(String.join("  ", entry.getFirstName(), entry.getLastName(),
+                                              (CharSequence) entry.getMobile())); //needed to cast Object
             }
         }
     }
@@ -19,6 +24,7 @@ public class AddressBook extends ArrayList<AddressEntry> {
         public void find(Predicate<AddressEntry> predicate) {
             for (AddressEntry entry : this) {
                 if (predicate.test(entry)) {
+                    //It should return information matching the name/number that was input in
                     System.out.println(entry);
                 }
             }
@@ -28,12 +34,14 @@ public class AddressBook extends ArrayList<AddressEntry> {
     public void delete(Predicate<AddressEntry> predicate) {
         for (AddressEntry entry : this) {
             if (predicate.test(entry)) {
-                System.out.println(entry);
+                remove(entry);
             }
         }
     }
 
-    //Consumer accepts a single input argument and return no result
+    /* Consumer accepts a single input argument and return no result
+        NOTE: May remove this and just use find() and modify to edit entries
+     */
     public void edit(String lastName, String firstName, Consumer<AddressEntry> consumer){
         for (AddressEntry entry : this) {
                 consumer.accept(entry);
