@@ -25,7 +25,8 @@ https://docs.google.com/document/d/1KoVaDiQt9u8GTkpsPt0MgycmolTCVh2NKsCQUNYO-dk/
 >As a user, I want to delete contacts based on phone numbers, so i keep my contact list clean.
 
 **Instructions and Assumptions:**
-*The Clients are Jafer and Leah.
+
+The Clients are Jafer and Leah
 * [x] Git and GitHub repo with all members of the group
 * [x] A Trello board with the user stories and all members of the group included
 * [x] Maven project
@@ -44,8 +45,8 @@ https://docs.google.com/document/d/1KoVaDiQt9u8GTkpsPt0MgycmolTCVh2NKsCQUNYO-dk/
 
 **Notes:**
 
--All members pushed changes to branches of repository, then merged onto the [develop branch](https://github.com/Zoarial94/PS-AddressBook/tree/develop).
+- All members pushed changes to branches of repository, then merged onto the [develop branch](https://github.com/Zoarial94/PS-AddressBook/tree/develop).
 
--All members used [Trello](https://trello.com/b/UNPzDRwa/agile-board) to see progress, bring up concerns, and make updates.
+- All members used [Trello](https://trello.com/b/UNPzDRwa/agile-board) to see progress, bring up concerns, and make updates.
 
 
