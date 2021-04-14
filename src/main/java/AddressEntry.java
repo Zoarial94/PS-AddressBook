@@ -39,7 +39,7 @@ public class AddressEntry {
             entry[Entry.STATE.ordinal()],
             entry[Entry.ZIP.ordinal()]);
 
-        System.out.println("ADDED ENTRY:\n" + this.toString());
+        //System.out.println("ADDED ENTRY:\n" + this.toString());
     }
 
     public String toFile() {
