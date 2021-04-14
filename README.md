@@ -1,15 +1,15 @@
 https://docs.google.com/document/d/1KoVaDiQt9u8GTkpsPt0MgycmolTCVh2NKsCQUNYO-dk/edit#
 
+#[Address Book](https://docs.google.com/document/d/1KoVaDiQt9u8GTkpsPt0MgycmolTCVh2NKsCQUNYO-dk/edit#)
+###An application that manages contact information
 Jessica, Hunter, Allison, Michael
-
-An application that manages contact information
-
-Information is stored in a CSV file with the following format:
+---
+- Information is stored in a CSV file with the following format:
     "Name,Surname,Phone,Mobile,E-mail,Street,Town,State,Zip"
-
-User can use a default location for Address Book or select from their own
-If the CSV file doesn't exist in the path, a file is created.
-The CSV file is overwritten on save.
+- User can use a default location for Address Book or select from their own
+- If the CSV file doesn't exist in the path, a file is created.
+- The CSV file is overwritten on save.
+- User has the ability to search, order, edit, and delete entries.
 
 User Stories:
     As a user, i want to print all available contacts, so that i can view all contacts in a CSV like view ordered ascending by name then surname
