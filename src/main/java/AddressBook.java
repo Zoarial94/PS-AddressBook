@@ -17,7 +17,7 @@ public class AddressBook extends ArrayList<AddressEntry> {
         }
     }
     //If input argument matches (true) then entry is found, otherwise entry not found
-        public void find(Predicate<AddressEntry> predicate) {
+        public AddressEntry find(Predicate<AddressEntry> predicate) {
             for (AddressEntry entry : this) {
                 if (predicate.test(entry)) {
                     //It should return information matching the name/number that was input in
