@@ -5,21 +5,41 @@ public class AddressEntry {
     private String mobile;
     private String email;
     private String street;
-    private int number;
     private String town;
+<<<<<<< HEAD
     private String zip;
+=======
+    private String state;
+    private int zip;
+>>>>>>> origin/develop
 
-    public AddressEntry(String firstName, String lastName, String phone, String mobile, String email, String street, int number, String town, int zip) {
+    public AddressEntry(String firstName, String lastName, String phone, String mobile, String email, String street, String town, String state, int zip) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.mobile = mobile;
         this.email = email;
         this.street = street;
-        this.number = number;
         this.town = town;
+        this.state = state;
         this.zip = zip;
     }
+
+    @Override
+    public String toString() {
+        return "AddressEntry{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", email='" + email + '\'' +
+                ", street='" + street + '\'' +
+                ", town='" + town + '\'' +
+                ", state='" + state + '\'' +
+                ", zip=" + zip +
+                '}';
+    }
+
     // Getter
     public String getFirstName() {
         return firstName;
@@ -78,16 +98,6 @@ public class AddressEntry {
     //Setter
     public void setStreet(String newStreet) {
         this.street = newStreet;
-    }
-
-    //Getter
-    public int getNumber() {
-        return number;
-    }
-
-    //Setter
-    public void setNumber(int newNumber) {
-        this.number = newNumber;
     }
 
     //Getter
