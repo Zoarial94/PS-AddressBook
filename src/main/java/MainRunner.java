@@ -36,6 +36,9 @@ public class MainRunner {
         while(run) {
             println(MENU);
             userChoice = getUserInteger("Choice: ");
+            String fName, lName, number;
+            AddressEntry entry;
+            boolean b;
 
             switch(userChoice) {
                 case 1:
@@ -49,7 +52,7 @@ public class MainRunner {
                             return ret;
                         }
                     });
-                    addressBook.print((entry) -> true);
+                    addressBook.print((e) -> true);
                     break;
                 case 2:
                     println("Creating new entry.");
@@ -66,10 +69,10 @@ public class MainRunner {
                     break;
                 case 3:
                     println("Searching contacts by name.");
-                    String fName = getUserString("First Name: ");
-                    String lName = getUserString("Last Name: ");
-                    AddressEntry entry = addressBook.find((p) -> {
-                        return (p.getFirstName().equals(fName) &&p.getLastName().equals(lName));
+                    fName = getUserString("First Name: ");
+                    lName = getUserString("Last Name: ");
+                    entry = addressBook.find((e) -> {
+                        return (e.getFirstName().equals(fName) && e.getLastName().equals(lName));
                     });
                     if(entry != null) {
                         println(entry);
@@ -84,8 +87,27 @@ public class MainRunner {
                 case 6:
                     break;
                 case 7:
+                    println("Delete contact by name.");
+                    fName = getUserString("First Name: ");
+                    lName = getUserString("Last Name: ");
+                    b = addressBook.delete((e) -> (e.getFirstName().equals(fName) && e.getLastName().equals(lName)));
+                    if(b) {
+                        // b is true means it was deleted
+                        println("Contact deleted.");
+                    } else {
+                        println("No contact found!");
+                    }
+
                     break;
                 case 8:
+                    String num = getUserString("Phone number of contact to delete: ");
+                    b = addressBook.delete((p) -> p.getPhone().equals(num));
+                    if(b) {
+                        // If b is true then contact was deleted.
+                        println("Contact was deleted.");
+                    } else {
+                        println("No contact with that number was found.");
+                    }
                     break;
                 case 9:
                     run = false;

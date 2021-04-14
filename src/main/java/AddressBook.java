@@ -27,12 +27,14 @@ public class AddressBook extends ArrayList<AddressEntry> {
             return null;
     }
     //If input argument matches (true) then entry gets selected for deletion
-    public void delete(Predicate<AddressEntry> predicate) {
+    public boolean delete(Predicate<AddressEntry> predicate) {
         for (AddressEntry entry : this) {
             if (predicate.test(entry)) {
                 remove(entry);
+                return true;
             }
         }
+        return false;
     }
 
     /* Consumer accepts a single input argument and return no result
