@@ -88,7 +88,7 @@ public class AddressEntry {
     // Setter
     public void setFirstName(@Nullable String newFirstName) {
         if (newFirstName == null) return;
-        this.firstName = newFirstName;
+        this.firstName = newFirstName.trim();
     }
 
     // Getter
@@ -99,7 +99,7 @@ public class AddressEntry {
     // Setter
     public void setLastName(@Nullable String newLastName) {
         if (newLastName == null) return;
-        this.lastName = newLastName;
+        this.lastName = newLastName.trim();
     }
 
     //Getter
@@ -110,7 +110,7 @@ public class AddressEntry {
     // Setter
     public void setPhone(@Nullable String newPhone) {
         if (newPhone == null) return;
-        this.phone = newPhone;
+        this.phone = newPhone.trim();
     }
 
     //Getter
@@ -121,7 +121,7 @@ public class AddressEntry {
     //Setter
     public void setMobile(@Nullable String newMobile) {
         if (newMobile == null) return;
-        this.mobile = newMobile;
+        this.mobile = newMobile.trim();
     }
 
     //Getter
@@ -132,7 +132,7 @@ public class AddressEntry {
     //Setter
     public void setEmail(@Nullable String newEmail) {
         if (newEmail == null) return;
-        this.email = newEmail;
+        this.email = newEmail.trim();
     }
 
     //Getter
@@ -143,7 +143,7 @@ public class AddressEntry {
     //Setter
     public void setStreet(@Nullable String newStreet) {
         if (newStreet == null) return;
-        this.street = newStreet;
+        this.street = newStreet.trim();
     }
 
     //Getter
@@ -161,7 +161,7 @@ public class AddressEntry {
 
     public void setZip(@Nullable String newZip) {
         if (newZip == null) return;
-        this.zip = newZip;
+        this.zip = newZip.trim();
     }
 
 }
