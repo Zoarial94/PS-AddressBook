@@ -24,6 +24,9 @@ public class MainRunner {
         var book = new AddressBook();
         book.readFile();
 
+        for (var e : book)
+            System.out.println(e.toString());
+
         book.writeFile();
         /*
         // Variables
