@@ -145,17 +145,6 @@ public class AddressEntry {
     }
 
     //Getter
-    public String getNumber() {
-        return number;
-    }
-
-    //Setter
-    public void setNumber(@Nullable String newNumber) {
-        if (newNumber == null) return;
-        this.number = newNumber;
-    }
-
-    //Getter
     public String getTown() {
         return town;
     }

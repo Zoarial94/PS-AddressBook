@@ -23,12 +23,13 @@ public class MainRunner {
 
     public static void main(String[] args) {
         var addressBook = new AddressBook();
+        addressBook.selectFile("src/main/resources/defaultBook");
         addressBook.readFile();
 
         for (var e : addressBook)
             System.out.println(e.toString());
 
-        addressBook.writeFile();
+        //addressBook.writeFile();
         // Variables
         boolean run = true;
         int userChoice;
@@ -81,6 +82,16 @@ public class MainRunner {
                     }
                     break;
                 case 4:
+                    println("Searching contacts by number.");
+                    number = getUserString("Phone number: ");
+                    entry = addressBook.find((e) -> {
+                        return (e.getPhone().equals(number));
+                    });
+                    if(entry != null) {
+                        println(entry);
+                    } else {
+                        println("No entry found!");
+                    }
                     break;
                 case 5:
                     break;
@@ -111,6 +122,7 @@ public class MainRunner {
                     break;
                 case 9:
                     run = false;
+                    addressBook.writeFile();
                     break;
                 default:
                     println("Invalid Choice!!");
@@ -124,8 +136,8 @@ public class MainRunner {
     }
 
     static Integer getUserInteger(String out) {
-        String str = getUserString(out);
         while(true) {
+            String str = getUserString(out);
             try {
                 return Integer.valueOf(str);
             } catch (NumberFormatException ex) {
