@@ -20,18 +20,15 @@ public class AddressBook extends ArrayList<AddressEntry> {
 
     private String book = "src/main/java/book";
     public void readFile() {
-        int i = 0;
         try (var file = new BufferedReader(new FileReader(this.book))) {
             String entry;
             while ((entry = file.readLine()) != null) {
-                System.out.println("Just entered for each loop");
-                this.add(new AddressEntry(entry.split(" ")));
-                i++;
+                this.add(new AddressEntry(entry.split(",")));
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println("Something went wrong while reading file:\n" + e.getMessage());
-        } finally {
-            System.out.println("read entry number " + i);
+        } catch (Exception e) {
+            System.out.println("Something went wrong with entry.split\n" + e.getMessage());
         }
     }
 

@@ -40,14 +40,14 @@ public class AddressEntry {
 
     public String toFile() {
         return
-            firstName + " " +
-            lastName + " " +
-                phone + " " +
-                mobile + " " +
-                email + " " +
-                street + " " +
-                town + " " +
-                state + " " +
+            firstName + "," +
+            lastName + "," +
+                phone + "," +
+                mobile + "," +
+                email + "," +
+                street + "," +
+                town + "," +
+                state + "," +
                 zip + "\n";
     }
 
