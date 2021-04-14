@@ -7,7 +7,7 @@ public class AddressBook extends ArrayList<AddressEntry> {
     public AddressBook() {
 
     }
-
+    //For every entry that is true, it is printed out
     public void print(Predicate<AddressEntry> predicate) {
         for (AddressEntry entry : this) {
             if (predicate.test(entry)) {
@@ -15,6 +15,7 @@ public class AddressBook extends ArrayList<AddressEntry> {
             }
         }
     }
+    //If input argument matches (true) then entry is found, otherwise entry not found
         public void find(Predicate<AddressEntry> predicate) {
             for (AddressEntry entry : this) {
                 if (predicate.test(entry)) {
@@ -23,7 +24,7 @@ public class AddressBook extends ArrayList<AddressEntry> {
             }
 
     }
-    //
+    //If input argument matches (true) then entry gets selected for deletion
     public void delete(Predicate<AddressEntry> predicate) {
         for (AddressEntry entry : this) {
             if (predicate.test(entry)) {
