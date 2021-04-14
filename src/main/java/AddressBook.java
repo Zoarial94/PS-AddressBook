@@ -48,7 +48,7 @@ public class AddressBook extends ArrayList<AddressEntry> {
     unsure how or where to implement a feature to ensure only unique values are read/written
      */
     public void loadAddressBook() {
-        System.out.println("Load AddressBook?");
+        System.out.println("Load AddressBook? (Y/N)");
         var input = new Scanner(System.in);
         String selection;
         while (true) {
@@ -59,7 +59,7 @@ public class AddressBook extends ArrayList<AddressEntry> {
                 return;
             } else if (selection.toLowerCase().compareTo("n") == 0 || selection.toLowerCase().compareTo("no") == 0) {
                 System.out.println("Default book selected");
-                selectFile("src/main/java/book");
+                selectFile("src/main/resources/defaultBook");
                 return;
             } else {
                 System.out.println("Sorry, " + selection + " isn't valid");
