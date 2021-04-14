@@ -21,6 +21,12 @@ public class MainRunner {
 
 
     public static void main(String[] args) {
+        var book = new AddressBook();
+        book.readFile();
+
+        book.writeFile();
+        /*
+        // Variables
         boolean run = true;
         Scanner input = new Scanner(System.in);
         int userChoice;
@@ -55,7 +61,6 @@ public class MainRunner {
             }
 
         }
-
-
+         */
     }
 }
