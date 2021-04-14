@@ -1,5 +1,7 @@
 public class AddressEntry {
+    //For parsing an array in the constructor
     enum Entry {FIRSTNAME, LASTNAME, PHONE, MOBILE, EMAIL, STREET, TOWN, STATE, ZIP}
+
     private String firstName;
     private String lastName;
     private String phone;
