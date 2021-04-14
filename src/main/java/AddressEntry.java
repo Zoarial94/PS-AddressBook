@@ -8,22 +8,30 @@ public class AddressEntry {
     private String mobile;
     private String email;
     private String street;
-    private String number;
     private String town;
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     private String state;
     private String zip;
 
     public AddressEntry(String firstName, String lastName, String phone, String mobile, String email, String street,
-                        String number, String town, String zip) {
+                        String town, String state, String zip) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.mobile = mobile;
         this.email = email;
         this.street = street;
-        this.number = number;
         this.town = town;
         this.zip = zip;
+        this.state = state;
     }
 
     public AddressEntry(String[] entry) {
@@ -128,16 +136,6 @@ public class AddressEntry {
     //Setter
     public void setStreet(String newStreet) {
         this.street = newStreet;
-    }
-
-    //Getter
-    public String getNumber() {
-        return number;
-    }
-
-    //Setter
-    public void setNumber(String newNumber) {
-        this.number = newNumber;
     }
 
     //Getter
