@@ -1,4 +1,5 @@
 public class AddressEntry {
+    enum Entry {FIRSTNAME, LASTNAME, PHONE, MOBILE, EMAIL, STREET, TOWN, STATE, ZIP}
     private String firstName;
     private String lastName;
     private String phone;
@@ -19,6 +20,35 @@ public class AddressEntry {
         this.town = town;
         this.state = state;
         this.zip = zip;
+    }
+
+    public AddressEntry(String[] entry) {
+        //would be really nice if one could use c style enums
+        this(
+            entry[Entry.FIRSTNAME.ordinal()],
+            entry[Entry.LASTNAME.ordinal()],
+            entry[Entry.PHONE.ordinal()],
+            entry[Entry.MOBILE.ordinal()],
+            entry[Entry.EMAIL.ordinal()],
+            entry[Entry.STREET.ordinal()],
+            entry[Entry.TOWN.ordinal()],
+            entry[Entry.STATE.ordinal()],
+            Integer.valueOf(entry[Entry.ZIP.ordinal()]));
+
+        System.out.println("ADDED ENTRY:\n" + this.toString());
+    }
+
+    public String toFile() {
+        return
+            firstName + " " +
+            lastName + " " +
+                phone + " " +
+                mobile + " " +
+                email + " " +
+                street + " " +
+                town + " " +
+                state + " " +
+                zip + "\n";
     }
 
     @Override
