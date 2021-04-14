@@ -86,8 +86,9 @@ public class AddressEntry {
     }
 
     // Setter
-    public void setFirstName(String newName) {
-        this.firstName = newName;
+    public void setFirstName(@Nullable String newFirstName) {
+        if (newFirstName == null) return;
+        this.firstName = newFirstName;
     }
 
     // Getter
@@ -96,8 +97,9 @@ public class AddressEntry {
     }
 
     // Setter
-    public void setLastName(String newName) {
-        this.lastName = newName;
+    public void setLastName(@Nullable String newLastName) {
+        if (newLastName == null) return;
+        this.lastName = newLastName;
     }
 
     //Getter
@@ -106,7 +108,7 @@ public class AddressEntry {
     }
 
     // Setter
-    public void setPhone(String newPhone) {
+    public void setPhone(@Nullable String newPhone) {
         if (newPhone == null) return;
         this.phone = newPhone;
     }
