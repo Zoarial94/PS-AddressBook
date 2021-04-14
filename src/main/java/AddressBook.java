@@ -2,8 +2,10 @@ import java.util.ArrayList;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.io.*;
+import java.util.*;
 
 public class AddressBook extends ArrayList<AddressEntry> {
+    private String rolodex;
 
     public AddressBook() {
 
@@ -27,26 +29,51 @@ public class AddressBook extends ArrayList<AddressEntry> {
             return null;
     }
     //If input argument matches (true) then entry gets selected for deletion
-    public void delete(Predicate<AddressEntry> predicate) {
+    public boolean delete(Predicate<AddressEntry> predicate) {
         for (AddressEntry entry : this) {
             if (predicate.test(entry)) {
                 remove(entry);
+                return true;
             }
         }
+        return false;
     }
 
     /*
     Program currently reads all values, adds the unique values and appends the file every time it writes,
     unsure how or where to implement a feature to ensure only unique values are read/written
      */
-    private String book = "src/main/java/book";
+    public void loadAddressBook() {
+        System.out.println("Load AddressBook? (Y/N)");
+        var input = new Scanner(System.in);
+        String selection;
+        while (true) {
+            selection = input.next();
+            if (selection.toLowerCase().compareTo("y") == 0 || selection.toLowerCase().compareTo("yes") == 0) {
+                System.out.println("Enter Address Book path:");
+                selectFile(input.next());
+                return;
+            } else if (selection.toLowerCase().compareTo("n") == 0 || selection.toLowerCase().compareTo("no") == 0) {
+                System.out.println("Default book selected");
+                selectFile("src/main/resources/defaultBook");
+                return;
+            } else {
+                System.out.println("Sorry, " + selection + " isn't valid");
+                continue;
+            }
+        }
+    }
+    public void selectFile(String filepath) {
+        rolodex = filepath;
+    }
+
     public void readFile() {
-        var f = new File(this.book);
+        var f = new File(rolodex);
         if (!f.exists()) {
             initFile();
         }
 
-        try (var file = new BufferedReader(new FileReader(book))) {
+        try (var file = new BufferedReader(new FileReader(rolodex))) {
             String entry;
             while ((entry = file.readLine()) != null) {
                 this.add(new AddressEntry(entry.split(",")));
@@ -59,7 +86,7 @@ public class AddressBook extends ArrayList<AddressEntry> {
     }
 
     public void writeFile() {
-        try (var file = new BufferedWriter(new FileWriter(book))) {
+        try (var file = new BufferedWriter(new FileWriter(rolodex))) {
             for (var entry : this)
                 file.append(entry.toFile());
 
@@ -69,7 +96,7 @@ public class AddressBook extends ArrayList<AddressEntry> {
     }
 
     public void initFile() {
-        try (var file = new BufferedWriter(new FileWriter(book))) {
+        try (var file = new BufferedWriter(new FileWriter(rolodex))) {
             file.write("Name,Surname,Phone,Mobile,E-mail,Street,Number,Town,Zip\n");
         } catch (Exception e) {
             System.out.println("Something went wrong while writing file:\n" + e.getMessage());
