@@ -34,13 +34,20 @@ The Clients are Jafer and Leah
         -Some fields are optional like (phone, address)
 * [x] Use Interfaces and Methods available or create your own if they don’t exist e.g. (comparable, comparator)
 * [x] Break the user stories to smaller tasks
+
 *Project Concepts:
--Use comments to make the code understandable
--Utilize OOP concepts
--Use Exception Handling
--Use Collections or Arrays
--Use BufferedReader/Writer
--Commit and push to GitHub ( Minimum of 10 commits)
+
+>-Use comments to make the code understandable
+>
+>-Utilize OOP concepts
+>
+>-Use Exception Handling
+>
+>-Use Collections or Arrays
+>
+>-Use BufferedReader/Writer
+>
+>-Commit and push to GitHub ( Minimum of 10 commits)
 
 
 **Notes:**
