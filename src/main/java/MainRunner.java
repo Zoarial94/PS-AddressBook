@@ -1,4 +1,3 @@
-import java.util.Collections;
 import java.util.Scanner;
 
 public class MainRunner {
@@ -22,21 +21,16 @@ public class MainRunner {
 
 
     public static void main(String[] args) {
+        var book = new AddressBook();
+        book.readFile();
+
+        book.writeFile();
+        /*
         // Variables
         boolean run = true;
         Scanner input = new Scanner(System.in);
         int userChoice;
-        AddressBook addressBook = new AddressBook();
 
-        // Setup
-        addressBook.add(new AddressEntry("Hunter", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
-        addressBook.add(new AddressEntry("Arthor", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
-        addressBook.add(new AddressEntry("Betty", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
-        addressBook.add(new AddressEntry("Catherine", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
-        addressBook.add(new AddressEntry("Catherine", "Lackey", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk", "Knoxville", "TN",  37919));
-
-
-        // Loop
         while(run) {
             println(MENU);
             print("Choice: ");
@@ -44,17 +38,6 @@ public class MainRunner {
 
             switch(userChoice) {
                 case 1:
-                    // First sort the collection
-                    // Then print everything
-                    addressBook.sort((entry1, entry2) -> {
-                        int ret = entry1.getFirstName().compareTo(entry2.getFirstName());
-                        if (ret == 0) {
-                            return entry1.getLastName().compareTo(entry2.getLastName());
-                        } else {
-                            return ret;
-                        }
-                    });
-                    addressBook.print((entry) -> true);
                     break;
                 case 2:
                     break;
@@ -78,7 +61,6 @@ public class MainRunner {
             }
 
         }
-
-
+         */
     }
 }
