@@ -52,8 +52,7 @@ The Clients are Jafer and Leah
 
 **Notes:**
 
-- All members pushed changes to branches of repository, then merged onto the [develop branch](https://github.com/Zoarial94/PS-AddressBook/tree/develop).
+- All members pushed changes to separate branches of repository, then merged onto the [develop branch](https://github.com/Zoarial94/PS-AddressBook/tree/develop), with all the branches combined we have a total average of **43** commits, the
+[main branch](https://github.com/Zoarial94/PS-AddressBook/tree/master) holds the final product of the Address Book.
 
 - All members used [Trello](https://trello.com/b/UNPzDRwa/agile-board) to see progress, bring up concerns, and make updates.
-
-
