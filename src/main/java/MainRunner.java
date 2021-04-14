@@ -2,6 +2,17 @@ import java.util.Scanner;
 
 public class MainRunner {
     private static Scanner input = new Scanner(System.in);
+    static String EDIT_MENU = "" +
+            "1) First Name\n" +
+            "2) Last Name\n" +
+            "3) Phone Number\n" +
+            "4) Mobile Number\n" +
+            "5) Email Address\n" +
+            "6) Street Address\n" +
+            "7) Town\n" +
+            "8) State\n" +
+            "9) Zip\n" +
+            "10) Exit\n";
     static String MENU = "" +
             "1) Print all\n" +
             "2) Add contact\n" +
@@ -72,9 +83,7 @@ public class MainRunner {
                     println("Searching contacts by name.");
                     fName = getUserString("First Name: ");
                     lName = getUserString("Last Name: ");
-                    entry = addressBook.find((e) -> {
-                        return (e.getFirstName().equals(fName) && e.getLastName().equals(lName));
-                    });
+                    entry = addressBook.find((e) -> (e.getFirstName().equals(fName) && e.getLastName().equals(lName)));
                     if(entry != null) {
                         println(entry);
                     } else {
@@ -84,9 +93,7 @@ public class MainRunner {
                 case 4:
                     println("Searching contacts by number.");
                     number = getUserString("Phone number: ");
-                    entry = addressBook.find((e) -> {
-                        return (e.getPhone().equals(number));
-                    });
+                    entry = addressBook.find((e) -> (e.getPhone().equals(number) || e.getMobile().equals(number)));
                     if(entry != null) {
                         println(entry);
                     } else {
@@ -94,8 +101,29 @@ public class MainRunner {
                     }
                     break;
                 case 5:
+                    println("Editing contact by name.");
+                    fName = getUserString("First Name: ");
+                    lName = getUserString("Last Name: ");
+                    entry = addressBook.find((e) -> {
+                        return (e.getFirstName().equals(fName) && e.getLastName().equals(lName));
+                    });
+                    if(entry != null) {
+                        editEntry(entry);
+                    } else {
+                        println("No entry found!");
+                    }
                     break;
                 case 6:
+                    println("Editing contact by number.");
+                    number = getUserString("Phone number: ");
+                    entry = addressBook.find((e) -> {
+                        return (e.getPhone().equals(number) || e.getMobile().equals(number));
+                    });
+                    if(entry != null) {
+                        editEntry(entry);
+                    } else {
+                        println("No entry found!");
+                    }
                     break;
                 case 7:
                     println("Delete contact by name.");
@@ -111,8 +139,8 @@ public class MainRunner {
 
                     break;
                 case 8:
-                    String num = getUserString("Phone number of contact to delete: ");
-                    b = addressBook.delete((p) -> p.getPhone().equals(num));
+                    number = getUserString("Phone number of contact to delete: ");
+                    b = addressBook.delete((e) -> e.getPhone().equals(number) || e.getMobile().equals(number));
                     if(b) {
                         // If b is true then contact was deleted.
                         println("Contact was deleted.");
@@ -142,6 +170,49 @@ public class MainRunner {
                 return Integer.valueOf(str);
             } catch (NumberFormatException ex) {
                 println("Not a number. Try again.");
+            }
+        }
+    }
+
+    static void editEntry(AddressEntry e) {
+        boolean run = true;
+
+        while(run) {
+            println(EDIT_MENU);
+            int choice = getUserInteger("What would you like to edit: ");
+            switch (choice) {
+                case 1:
+                    e.setFirstName(getUserString("First Name: "));
+                    break;
+                case 2:
+                    e.setLastName(getUserString("Last Name: "));
+                    break;
+                case 3:
+                    e.setPhone(getUserString("Phone Number: "));
+                    break;
+                case 4:
+                    e.setMobile(getUserString("Mobile Number: "));
+                    break;
+                case 5:
+                    e.setEmail(getUserString("Email Address: "));
+                    break;
+                case 6:
+                    e.setStreet(getUserString("Street Address: "));
+                    break;
+                case 7:
+                    e.setTown(getUserString("Town: "));
+                    break;
+                case 8:
+                    e.setState(getUserString("State: "));
+                    break;
+                case 9:
+                    e.setZip(getUserString("Zip: "));
+                    break;
+                case 10:
+                    run = false;
+                    break;
+                default:
+                    println("Invalid option!");
             }
         }
     }
