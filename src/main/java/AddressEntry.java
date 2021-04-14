@@ -1,3 +1,5 @@
+import org.jetbrains.annotations.Nullable;
+
 public class AddressEntry {
     //For parsing an array in the constructor
     enum Entry {FIRSTNAME, LASTNAME, PHONE, MOBILE, EMAIL, STREET, TOWN, STATE, ZIP}
@@ -105,6 +107,7 @@ public class AddressEntry {
 
     // Setter
     public void setPhone(String newPhone) {
+        if (newPhone == null) return;
         this.phone = newPhone;
     }
 
@@ -114,7 +117,8 @@ public class AddressEntry {
     }
 
     //Setter
-    public void setMobile(String newMobile) {
+    public void setMobile(@Nullable String newMobile) {
+        if (newMobile == null) return;
         this.mobile = newMobile;
     }
 
@@ -124,7 +128,8 @@ public class AddressEntry {
     }
 
     //Setter
-    public void setEmail(String newEmail) {
+    public void setEmail(@Nullable String newEmail) {
+        if (newEmail == null) return;
         this.email = newEmail;
     }
 
@@ -134,8 +139,20 @@ public class AddressEntry {
     }
 
     //Setter
-    public void setStreet(String newStreet) {
+    public void setStreet(@Nullable String newStreet) {
+        if (newStreet == null) return;
         this.street = newStreet;
+    }
+
+    //Getter
+    public String getNumber() {
+        return number;
+    }
+
+    //Setter
+    public void setNumber(@Nullable String newNumber) {
+        if (newNumber == null) return;
+        this.number = newNumber;
     }
 
     //Getter
@@ -143,14 +160,16 @@ public class AddressEntry {
         return town;
     }
 
-    public void setTown(String newTown) {
-        this.town = newTown;
+    public void setTown(@Nullable String newTown) {
+        if (newTown == null) return;
+        this.town = newTown.trim();
     }
     public String getZip() {
         return zip;
     }
 
-    public void setZip(String newZip) {
+    public void setZip(@Nullable String newZip) {
+        if (newZip == null) return;
         this.zip = newZip;
     }
 
