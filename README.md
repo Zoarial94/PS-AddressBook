@@ -1,12 +1,11 @@
 https://docs.google.com/document/d/1KoVaDiQt9u8GTkpsPt0MgycmolTCVh2NKsCQUNYO-dk/edit#
 
-#Group A Assignment
+# Group A Assignment
 ## Address Book Contact Management
 ###### Members: Allison, Hunter, Jessica, Michael
 ###### Deadline: Wednesday
 
-###### Project Summary:
-###### A Java console application that manages an address book where the contacts are saved.
+###### Project Summary: A Java console application that manages an address book where the contacts are saved.
 
 **User Stories:**
 >As a user, i want to print all available contacts, so that i can view all contacts in a CSV like view ordered ascending by name then surname
@@ -37,7 +36,8 @@ https://docs.google.com/document/d/1KoVaDiQt9u8GTkpsPt0MgycmolTCVh2NKsCQUNYO-dk/
 
 
 **Notes:**
-All members pushed changes to branches of repository, then merged onto the [develop branch](https://github.com/Zoarial94/PS-AddressBook/tree/develop).
-All members used [Trello](https://trello.com/b/UNPzDRwa/agile-board) to see progress, bring up concerns, and make updates.
+-All members pushed changes to branches of repository, then merged onto the [develop branch](https://github.com/Zoarial94/PS-AddressBook/tree/develop).
+
+-All members used [Trello](https://trello.com/b/UNPzDRwa/agile-board) to see progress, bring up concerns, and make updates.
 
 
