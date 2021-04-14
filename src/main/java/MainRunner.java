@@ -23,6 +23,13 @@ public class MainRunner {
 
     public static void main(String[] args) {
         var addressBook = new AddressBook();
+        addressBook.loadAddressBook();
+        for (var e : addressBook)
+            System.out.println(e.toString());
+        addressBook.writeFile();
+
+
+        //var addressBook = new AddressBook();
         // Variables
         boolean run = true;
         int userChoice;

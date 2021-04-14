@@ -50,27 +50,24 @@ public class AddressBook extends ArrayList<AddressEntry> {
             if (selection.toLowerCase().compareTo("y") == 0 || selection.toLowerCase().compareTo("yes") == 0) {
                 System.out.println("Enter Address Book path:");
                 selectFile(input.next());
-                return;
+                break;
             } else if (selection.toLowerCase().compareTo("n") == 0 || selection.toLowerCase().compareTo("no") == 0) {
                 System.out.println("Default book selected");
                 selectFile("src/main/resources/defaultBook");
-                return;
+                break;
             } else {
                 System.out.println("Sorry, " + selection + " isn't valid");
                 continue;
             }
         }
+        readFile();
     }
+
     public void selectFile(String filepath) {
         rolodex = filepath;
     }
 
     public void readFile() {
-        var f = new File(rolodex);
-        if (!f.exists()) {
-            initFile();
-        }
-
         try (var file = new BufferedReader(new FileReader(rolodex))) {
             String entry;
             while ((entry = file.readLine()) != null) {
