@@ -1,4 +1,4 @@
-https://docs.google.com/document/d/1KoVaDiQt9u8GTkpsPt0MgycmolTCVh2NKsCQUNYO-dk/edit#
+###### [GoogleDocs Instructions](https://docs.google.com/document/d/1KoVaDiQt9u8GTkpsPt0MgycmolTCVh2NKsCQUNYO-dk/edit#)
 
 # Group A Assignment
 ## Address Book Contact Management
@@ -34,19 +34,25 @@ The Clients are Jafer and Leah
         -Some fields are optional like (phone, address)
 * [x] Use Interfaces and Methods available or create your own if they don’t exist e.g. (comparable, comparator)
 * [x] Break the user stories to smaller tasks
-*Project Concepts:
--Use comments to make the code understandable
--Utilize OOP concepts
--Use Exception Handling
--Use Collections or Arrays
--Use BufferedReader/Writer
--Commit and push to GitHub ( Minimum of 10 commits)
+
+**Project Concepts:**
+
+>-Use comments to make the code understandable
+>
+>-Utilize OOP concepts
+>
+>-Use Exception Handling
+>
+>-Use Collections or Arrays
+>
+>-Use BufferedReader/Writer
+>
+>-Commit and push to GitHub ( Minimum of 10 commits)
 
 
 **Notes:**
 
-- All members pushed changes to branches of repository, then merged onto the [develop branch](https://github.com/Zoarial94/PS-AddressBook/tree/develop).
+- All members pushed changes to separate branches of repository, then merged onto the [develop branch](https://github.com/Zoarial94/PS-AddressBook/tree/develop), with all the branches combined we have a total average of **43** commits, the
+[main branch](https://github.com/Zoarial94/PS-AddressBook/tree/master) holds the final product of the Address Book.
 
 - All members used [Trello](https://trello.com/b/UNPzDRwa/agile-board) to see progress, bring up concerns, and make updates.
-
-
