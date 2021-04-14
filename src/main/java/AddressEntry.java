@@ -7,7 +7,7 @@ public class AddressEntry {
     private String street;
     private int number;
     private String town;
-    private int zip;
+    private String zip;
 
     public AddressEntry(String firstName, String lastName, String phone, String mobile, String email, String street, int number, String town, int zip) {
         this.firstName = firstName;
@@ -98,13 +98,12 @@ public class AddressEntry {
     public void setTown(String newTown) {
         this.town = newTown;
     }
-    public int getZip() {
+    public String getZip() {
         return zip;
     }
 
-    public void setZip(int newZip) {
+    public void setZip(String newZip) {
         this.zip = newZip;
-
     }
 
 }
