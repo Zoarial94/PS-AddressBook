@@ -33,21 +33,26 @@ public class MainRunner {
 
 
     public static void main(String[] args) {
+
+        // Variables
         var addressBook = new AddressBook();
+        boolean run = true;
+        int userChoice;
+
+        // Load the addressbook file
         addressBook.loadAddressBook();
         for (var e : addressBook)
             System.out.println(e.toString());
 
-        // Variables
-        boolean run = true;
-        int userChoice;
-
         while(run) {
-            println(MENU);
-            userChoice = getUserInteger("Choice: ");
+            // Variables
             String fName, lName, number;
             AddressEntry entry;
             boolean b;
+
+            // Print out the users choices, then get the user's input
+            println(MENU);
+            userChoice = getUserInteger("Choice: ");
 
             switch(userChoice) {
                 case 1:
@@ -101,9 +106,7 @@ public class MainRunner {
                     println("Editing contact by name.");
                     fName = getUserString("First Name: ");
                     lName = getUserString("Last Name: ");
-                    entry = addressBook.find((e) -> {
-                        return (e.getFirstName().equals(fName) && e.getLastName().equals(lName));
-                    });
+                    entry = addressBook.find((e) -> (e.getFirstName().equals(fName) && e.getLastName().equals(lName)));
                     if(entry != null) {
                         editEntry(entry);
                     } else {
@@ -113,9 +116,7 @@ public class MainRunner {
                 case 6:
                     println("Editing contact by number.");
                     number = getUserString("Phone number: ");
-                    entry = addressBook.find((e) -> {
-                        return (e.getPhone().equals(number) || e.getMobile().equals(number));
-                    });
+                    entry = addressBook.find((e) -> (e.getPhone().equals(number) || e.getMobile().equals(number)));
                     if(entry != null) {
                         editEntry(entry);
                     } else {
@@ -155,6 +156,7 @@ public class MainRunner {
         }
     }
 
+    // Helper functions for getting user input
     static String getUserString(String out) {
         print(out);
         return input.nextLine().trim();

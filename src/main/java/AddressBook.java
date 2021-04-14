@@ -4,6 +4,7 @@ import java.util.function.Predicate;
 import java.io.*;
 import java.util.*;
 
+// AddressBook extends ArrayList so that functions such as Collections.sort() work natively.
 public class AddressBook extends ArrayList<AddressEntry> {
     private String rolodex;
 
