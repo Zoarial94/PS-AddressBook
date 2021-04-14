@@ -21,10 +21,10 @@ public class AddressBook extends ArrayList<AddressEntry> {
             for (AddressEntry entry : this) {
                 if (predicate.test(entry)) {
                     //It should return information matching the name/number that was input in
-                    System.out.println(entry);
+                    return entry;
                 }
             }
-
+            return null;
     }
     //If input argument matches (true) then entry gets selected for deletion
     public void delete(Predicate<AddressEntry> predicate) {
