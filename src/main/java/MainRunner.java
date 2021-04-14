@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class MainRunner {
+    private static Scanner input = new Scanner(System.in);
     static String MENU = "" +
             "1) Print all\n" +
             "2) Add contact\n" +
@@ -21,27 +22,60 @@ public class MainRunner {
 
 
     public static void main(String[] args) {
-        var book = new AddressBook();
-        book.readFile();
+        var addressBook = new AddressBook();
+        addressBook.readFile();
 
-        book.writeFile();
-        /*
+        for (var e : addressBook)
+            System.out.println(e.toString());
+
+        addressBook.writeFile();
         // Variables
         boolean run = true;
-        Scanner input = new Scanner(System.in);
         int userChoice;
 
         while(run) {
             println(MENU);
-            print("Choice: ");
-            userChoice = input.nextInt();
+            userChoice = getUserInteger("Choice: ");
 
             switch(userChoice) {
                 case 1:
+                    // First sort the collection
+                    // Then print everything
+                    addressBook.sort((entry1, entry2) -> {
+                        int ret = entry1.getFirstName().compareTo(entry2.getFirstName());
+                        if (ret == 0) {
+                            return entry1.getLastName().compareTo(entry2.getLastName());
+                        } else {
+                            return ret;
+                        }
+                    });
+                    addressBook.print((entry) -> true);
                     break;
                 case 2:
+                    println("Creating new entry.");
+                addressBook.add(new AddressEntry(
+                        getUserString("First Name: "),
+                        getUserString("Last Name: "),
+                        getUserString("Phone Number: "),
+                        getUserString("Mobile Number: "),
+                        getUserString("Email: "),
+                        getUserString("Street Address: "),
+                        getUserString("Town: "),
+                        getUserString("State: "),
+                        getUserString("Zip: ")));
                     break;
                 case 3:
+                    println("Searching contacts by name.");
+                    String fName = getUserString("First Name: ");
+                    String lName = getUserString("Last Name: ");
+                    AddressEntry entry = addressBook.find((p) -> {
+                        return (p.getFirstName().equals(fName) &&p.getLastName().equals(lName));
+                    });
+                    if(entry != null) {
+                        println(entry);
+                    } else {
+                        println("No entry found!");
+                    }
                     break;
                 case 4:
                     break;
@@ -59,8 +93,23 @@ public class MainRunner {
                 default:
                     println("Invalid Choice!!");
             }
-
         }
-         */
     }
+
+    static String getUserString(String out) {
+        print(out);
+        return input.nextLine().trim();
+    }
+
+    static Integer getUserInteger(String out) {
+        String str = getUserString(out);
+        while(true) {
+            try {
+                return Integer.valueOf(str);
+            } catch (NumberFormatException ex) {
+                println("Not a number. Try again.");
+            }
+        }
+    }
+
 }

@@ -10,22 +10,30 @@ public class AddressEntry {
     private String mobile;
     private String email;
     private String street;
-    private String number;
     private String town;
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     private String state;
     private String zip;
 
     public AddressEntry(String firstName, String lastName, String phone, String mobile, String email, String street,
-                        String number, String town, String zip) {
+                        String town, String state, String zip) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.mobile = mobile;
         this.email = email;
         this.street = street;
-        this.number = number;
         this.town = town;
         this.zip = zip;
+        this.state = state;
     }
 
     public AddressEntry(String[] entry) {
@@ -41,7 +49,7 @@ public class AddressEntry {
             entry[Entry.STATE.ordinal()],
             entry[Entry.ZIP.ordinal()]);
 
-        System.out.println("ADDED ENTRY:\n" + this.toString());
+        //System.out.println("ADDED ENTRY:\n" + this.toString());
     }
 
     public String toFile() {
@@ -139,6 +147,7 @@ public class AddressEntry {
     }
 
     //Getter
+<<<<<<< HEAD
     public String getNumber() {
         return number;
     }
@@ -150,6 +159,8 @@ public class AddressEntry {
     }
 
     //Getter
+=======
+>>>>>>> origin/develop
     public String getTown() {
         return town;
     }

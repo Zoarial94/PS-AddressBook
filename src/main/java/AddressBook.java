@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.io.*;
 
 public class AddressBook extends ArrayList<AddressEntry> {
 
@@ -11,24 +12,19 @@ public class AddressBook extends ArrayList<AddressEntry> {
     public void print(Predicate<AddressEntry> predicate) {
         for (AddressEntry entry : this) {
             if (predicate.test(entry)) {
-                 /* It was giving me location of values, so I used String.join,
-                    not sure if there's a better way convert and display all values,
-                    I just chose first name, last name, and mobile for now.
-                     */
-                System.out.println(String.join("  ", entry.getFirstName(), entry.getLastName(),
-                                              (CharSequence) entry.getMobile())); //needed to cast Object
+                System.out.println(entry);
             }
         }
     }
     //If input argument matches (true) then entry is found, otherwise entry not found
-        public void find(Predicate<AddressEntry> predicate) {
+        public AddressEntry find(Predicate<AddressEntry> predicate) {
             for (AddressEntry entry : this) {
                 if (predicate.test(entry)) {
                     //It should return information matching the name/number that was input in
-                    System.out.println(entry);
+                    return entry;
                 }
             }
-
+            return null;
     }
     //If input argument matches (true) then entry gets selected for deletion
     public void delete(Predicate<AddressEntry> predicate) {
@@ -39,22 +35,18 @@ public class AddressBook extends ArrayList<AddressEntry> {
         }
     }
 
-    /* Consumer accepts a single input argument and return no result
-        NOTE: May remove this and just use find() and modify to edit entries
-     */
-    public void edit(String lastName, String firstName, Consumer<AddressEntry> consumer){
-        for (AddressEntry entry : this) {
-                consumer.accept(entry);
-        }
-    }
-
     /*
     Program currently reads all values, adds the unique values and appends the file every time it writes,
     unsure how or where to implement a feature to ensure only unique values are read/written
      */
     private String book = "src/main/java/book";
     public void readFile() {
-        try (var file = new BufferedReader(new FileReader(this.book))) {
+        var f = new File(this.book);
+        if (!f.exists()) {
+            initFile();
+        }
+
+        try (var file = new BufferedReader(new FileReader(book))) {
             String entry;
             while ((entry = file.readLine()) != null) {
                 this.add(new AddressEntry(entry.split(",")));
@@ -67,10 +59,18 @@ public class AddressBook extends ArrayList<AddressEntry> {
     }
 
     public void writeFile() {
-        try (var file = new BufferedWriter(new FileWriter(this.book))) {
+        try (var file = new BufferedWriter(new FileWriter(book))) {
             for (var entry : this)
                 file.append(entry.toFile());
 
+        } catch (Exception e) {
+            System.out.println("Something went wrong while writing file:\n" + e.getMessage());
+        }
+    }
+
+    public void initFile() {
+        try (var file = new BufferedWriter(new FileWriter(book))) {
+            file.write("Name,Surname,Phone,Mobile,E-mail,Street,Number,Town,Zip\n");
         } catch (Exception e) {
             System.out.println("Something went wrong while writing file:\n" + e.getMessage());
         }
