@@ -22,6 +22,7 @@ public class MainRunner {
 
     public static void main(String[] args) {
         var book = new AddressBook();
+        book.loadAddressBook();
         book.readFile();
 
         for (var e : book)
