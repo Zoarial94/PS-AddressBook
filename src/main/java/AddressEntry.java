@@ -10,7 +10,7 @@ public class AddressEntry {
     private String street;
     private String town;
     private String state;
-    private int zip;
+    private String zip;
 
     public AddressEntry(String firstName, String lastName, String phone, String mobile, String email, String street, String town, String state, int zip) {
         this.firstName = firstName;
@@ -35,7 +35,7 @@ public class AddressEntry {
             entry[Entry.STREET.ordinal()],
             entry[Entry.TOWN.ordinal()],
             entry[Entry.STATE.ordinal()],
-            Integer.valueOf(entry[Entry.ZIP.ordinal()]));
+            entry[Entry.ZIP.ordinal()]);
 
         System.out.println("ADDED ENTRY:\n" + this.toString());
     }
@@ -136,13 +136,12 @@ public class AddressEntry {
     public void setTown(String newTown) {
         this.town = newTown;
     }
-    public int getZip() {
+    public String getZip() {
         return zip;
     }
 
-    public void setZip(int newZip) {
+    public void setZip(String newZip) {
         this.zip = newZip;
-
     }
 
 }
