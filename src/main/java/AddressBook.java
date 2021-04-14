@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -11,12 +12,7 @@ public class AddressBook extends ArrayList<AddressEntry> {
     public void print(Predicate<AddressEntry> predicate) {
         for (AddressEntry entry : this) {
             if (predicate.test(entry)) {
-                 /* It was giving me location of values, so I used String.join,
-                    not sure if there's a better way convert and display all values,
-                    I just chose first name, last name, and mobile for now.
-                     */
-                System.out.println(String.join("  ", entry.getFirstName(), entry.getLastName(),
-                                              (CharSequence) entry.getMobile())); //needed to cast Object
+                System.out.println(entry);
             }
         }
     }
