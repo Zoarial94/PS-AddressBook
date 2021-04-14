@@ -19,27 +19,21 @@ public class AddressBook extends ArrayList<AddressEntry> {
         }
     }
     //If input argument matches (true) then entry is found, otherwise entry not found
-    public void find(Predicate<AddressEntry> predicate) {
-        for (AddressEntry entry : this) {
-            if (predicate.test(entry)) {
-                System.out.println(entry);
+        public AddressEntry find(Predicate<AddressEntry> predicate) {
+            for (AddressEntry entry : this) {
+                if (predicate.test(entry)) {
+                    //It should return information matching the name/number that was input in
+                    return entry;
+                }
             }
-        }
+            return null;
     }
     //If input argument matches (true) then entry gets selected for deletion
     public void delete(Predicate<AddressEntry> predicate) {
         for (AddressEntry entry : this) {
             if (predicate.test(entry)) {
-                System.out.println(entry);
+                remove(entry);
             }
-        }
-    }
-
-    //(Sort by name, then surname)
-    //Consumer accepts a single input argument and return no result
-    public void edit(String lastName, String firstName, Consumer<AddressEntry> consumer){
-        for (AddressEntry entry : this) {
-                consumer.accept(entry);
         }
     }
 
