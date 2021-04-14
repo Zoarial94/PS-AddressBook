@@ -43,6 +43,7 @@ https://docs.google.com/document/d/1KoVaDiQt9u8GTkpsPt0MgycmolTCVh2NKsCQUNYO-dk/
 
 
 **Notes:**
+
 -All members pushed changes to branches of repository, then merged onto the [develop branch](https://github.com/Zoarial94/PS-AddressBook/tree/develop).
 
 -All members used [Trello](https://trello.com/b/UNPzDRwa/agile-board) to see progress, bring up concerns, and make updates.
