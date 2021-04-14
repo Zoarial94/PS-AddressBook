@@ -35,15 +35,6 @@ public class AddressBook extends ArrayList<AddressEntry> {
         }
     }
 
-    /* Consumer accepts a single input argument and return no result
-        NOTE: May remove this and just use find() and modify to edit entries
-     */
-    public void edit(String lastName, String firstName, Consumer<AddressEntry> consumer){
-        for (AddressEntry entry : this) {
-                consumer.accept(entry);
-        }
-    }
-
     /*
     Program currently reads all values, adds the unique values and appends the file every time it writes,
     unsure how or where to implement a feature to ensure only unique values are read/written
