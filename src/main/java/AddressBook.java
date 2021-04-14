@@ -42,7 +42,12 @@ public class AddressBook extends ArrayList<AddressEntry> {
      */
     private String book = "src/main/java/book";
     public void readFile() {
-        try (var file = new BufferedReader(new FileReader(this.book))) {
+        var f = new File(this.book);
+        if (!f.exists()) {
+            initFile();
+        }
+
+        try (var file = new BufferedReader(new FileReader(book))) {
             String entry;
             while ((entry = file.readLine()) != null) {
                 this.add(new AddressEntry(entry.split(",")));
@@ -55,7 +60,7 @@ public class AddressBook extends ArrayList<AddressEntry> {
     }
 
     public void writeFile() {
-        try (var file = new BufferedWriter(new FileWriter(this.book))) {
+        try (var file = new BufferedWriter(new FileWriter(book))) {
             for (var entry : this)
                 file.append(entry.toFile());
 
@@ -63,6 +68,12 @@ public class AddressBook extends ArrayList<AddressEntry> {
             System.out.println("Something went wrong while writing file:\n" + e.getMessage());
         }
     }
+
+    public void initFile() {
+        try (var file = new BufferedWriter(new FileWriter(book))) {
+            file.write("Name,Surname,Phone,Mobile,E-mail,Street,Number,Town,Zip\n");
+        } catch (Exception e) {
+            System.out.println("Something went wrong while writing file:\n" + e.getMessage());
+        }
+    }
 }
-
-
