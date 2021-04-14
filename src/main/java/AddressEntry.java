@@ -1,24 +1,58 @@
 public class AddressEntry {
+    //For parsing an array in the constructor
+    enum Entry {FIRSTNAME, LASTNAME, PHONE, MOBILE, EMAIL, STREET, TOWN, STATE, ZIP}
+
     private String firstName;
     private String lastName;
     private String phone;
     private String mobile;
     private String email;
     private String street;
+    private String number;
     private String town;
     private String state;
-    private int zip;
+    private String zip;
 
-    public AddressEntry(String firstName, String lastName, String phone, String mobile, String email, String street, String town, String state, int zip) {
+    public AddressEntry(String firstName, String lastName, String phone, String mobile, String email, String street,
+                        String number, String town, String zip) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.mobile = mobile;
         this.email = email;
         this.street = street;
+        this.number = number;
         this.town = town;
-        this.state = state;
         this.zip = zip;
+    }
+
+    public AddressEntry(String[] entry) {
+        //would be really nice if one could use c style enums
+        this(
+            entry[Entry.FIRSTNAME.ordinal()],
+            entry[Entry.LASTNAME.ordinal()],
+            entry[Entry.PHONE.ordinal()],
+            entry[Entry.MOBILE.ordinal()],
+            entry[Entry.EMAIL.ordinal()],
+            entry[Entry.STREET.ordinal()],
+            entry[Entry.TOWN.ordinal()],
+            entry[Entry.STATE.ordinal()],
+            entry[Entry.ZIP.ordinal()]);
+
+        System.out.println("ADDED ENTRY:\n" + this.toString());
+    }
+
+    public String toFile() {
+        return
+            firstName + "," +
+            lastName + "," +
+                phone + "," +
+                mobile + "," +
+                email + "," +
+                street + "," +
+                town + "," +
+                state + "," +
+                zip + "\n";
     }
 
     @Override
@@ -97,6 +131,16 @@ public class AddressEntry {
     }
 
     //Getter
+    public String getNumber() {
+        return number;
+    }
+
+    //Setter
+    public void setNumber(String newNumber) {
+        this.number = newNumber;
+    }
+
+    //Getter
     public String getTown() {
         return town;
     }
@@ -104,13 +148,12 @@ public class AddressEntry {
     public void setTown(String newTown) {
         this.town = newTown;
     }
-    public int getZip() {
+    public String getZip() {
         return zip;
     }
 
-    public void setZip(int newZip) {
+    public void setZip(String newZip) {
         this.zip = newZip;
-
     }
 
 }
