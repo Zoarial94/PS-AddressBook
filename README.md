@@ -1,4 +1,4 @@
-https://docs.google.com/document/d/1KoVaDiQt9u8GTkpsPt0MgycmolTCVh2NKsCQUNYO-dk/edit#
+###### [GoogleDocs Instructions](https://docs.google.com/document/d/1KoVaDiQt9u8GTkpsPt0MgycmolTCVh2NKsCQUNYO-dk/edit#)
 
 # Group A Assignment
 ## Address Book Contact Management
@@ -35,7 +35,7 @@ The Clients are Jafer and Leah
 * [x] Use Interfaces and Methods available or create your own if they don’t exist e.g. (comparable, comparator)
 * [x] Break the user stories to smaller tasks
 
-*Project Concepts:
+**Project Concepts:**
 
 >-Use comments to make the code understandable
 >
