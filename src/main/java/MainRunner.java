@@ -24,17 +24,6 @@ public class MainRunner {
         var book = new AddressBook();
         book.readFile();
 
-        book.add(new AddressEntry("Hunter", "White", "null", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk",
-            "Knoxville", "TN",  37919));
-        book.add(new AddressEntry("Arthor", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk",
-            "Knoxville", "TN",  37919));
-        book.add(new AddressEntry("Betty", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk",
-            "Knoxville", "TN",  37919));
-        book.add(new AddressEntry("Catherine", "White", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk",
-            "Knoxville", "TN",  37919));
-        book.add(new AddressEntry("Catherine", "Lackey", "", "0123456789", "HWB94@protonmail.com", "123 Kingston Pk",
-            "Knoxville", "TN",  37919));
-
         book.writeFile();
         /*
         // Variables

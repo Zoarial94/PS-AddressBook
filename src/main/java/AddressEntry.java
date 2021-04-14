@@ -8,16 +8,13 @@ public class AddressEntry {
     private String mobile;
     private String email;
     private String street;
-    private int number;
+    private String number;
     private String town;
-<<<<<<< HEAD
     private String state;
     private String zip;
-=======
-    private int zip;
->>>>>>> origin/jessbranch
 
-    public AddressEntry(String firstName, String lastName, String phone, String mobile, String email, String street, int number, String town, int zip) {
+    public AddressEntry(String firstName, String lastName, String phone, String mobile, String email, String street,
+                        String number, String town, String zip) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
@@ -28,7 +25,6 @@ public class AddressEntry {
         this.town = town;
         this.zip = zip;
     }
-<<<<<<< HEAD
 
     public AddressEntry(String[] entry) {
         //would be really nice if one could use c style enums
@@ -74,8 +70,6 @@ public class AddressEntry {
                 '}';
     }
 
-=======
->>>>>>> origin/jessbranch
     // Getter
     public String getFirstName() {
         return firstName;
@@ -137,12 +131,12 @@ public class AddressEntry {
     }
 
     //Getter
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
     //Setter
-    public void setNumber(int newNumber) {
+    public void setNumber(String newNumber) {
         this.number = newNumber;
     }
 
