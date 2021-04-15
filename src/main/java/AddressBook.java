@@ -7,6 +7,7 @@ import java.util.*;
 // AddressBook extends ArrayList so that functions such as Collections.sort() work natively.
 public class AddressBook extends ArrayList<AddressEntry> {
     private String rolodex;
+    private String csvHead;
 
     public AddressBook() {
 
@@ -78,6 +79,7 @@ public class AddressBook extends ArrayList<AddressEntry> {
 
         try (var file = new BufferedReader(new FileReader(rolodex))) {
             String entry;
+            csvHead = file.readLine(); //pulls the format before adding entrys
             while ((entry = file.readLine()) != null) {
                 this.add(new AddressEntry(entry.split(",")));
             }
@@ -90,6 +92,7 @@ public class AddressBook extends ArrayList<AddressEntry> {
 
     public void writeFile() {
         try (var file = new BufferedWriter(new FileWriter(rolodex))) {
+            file.append(csvHead + '\n'); //inserts the format before adding entrys
             for (var entry : this)
                 file.append(entry.toFile());
 
